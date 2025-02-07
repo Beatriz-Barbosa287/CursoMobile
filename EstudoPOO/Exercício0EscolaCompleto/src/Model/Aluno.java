@@ -1,6 +1,6 @@
 package Model;
 
-public class Aluno extends Pessoa {
+public class Aluno extends Pessoa implements Avaliavel {
     // atributos
 
     private String matricula;
@@ -31,11 +31,21 @@ public class Aluno extends Pessoa {
     public void setNota(Double nota) {
         this.nota = nota;
     }
-    //exibir informações -SobreEscrita
+
+    // exibir informações -SobreEscrita
     @Override
-    public void exibirinformacoes(){
+    public void exibirinformacoes() {
         super.exibirinformacoes();
-        System.out.println("matricula:" +matricula);
+        System.out.println("matricula:" + matricula);
         System.out.println("nota" + nota);
+    }
+
+    @Override
+    public void avaliarDesempenho() {
+        if (nota >= 6) {
+            System.out.println("Aprovado");
+        } else {
+            System.out.println("Reprovado");
+        }
     }
 }
